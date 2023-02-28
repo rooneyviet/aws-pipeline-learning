@@ -5,6 +5,7 @@ import { PipelineBase } from 'aws-cdk-lib/pipelines';
 import { Artifact, Pipeline } from 'aws-cdk-lib/aws-codepipeline';
 import { CodeBuildAction, GitHubSourceAction } from 'aws-cdk-lib/aws-codepipeline-actions';
 import { BuildSpec, LinuxBuildImage, PipelineProject } from 'aws-cdk-lib/aws-codebuild';
+import { SecretValue } from 'aws-cdk-lib';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class PipelineLearningStack extends cdk.Stack {
@@ -23,11 +24,11 @@ export class PipelineLearningStack extends cdk.Stack {
       stageName: "Source",
       actions: [
         new GitHubSourceAction({
-          owner: "Quan",
+          owner: "rooneyviet",
           repo: "aws-pipeline-learning",
           branch: "master",
           actionName: "Pipeline_Source",
-          oauthToken: cdk.SecretValue.secretsManager('github-pipeline'),
+          oauthToken: SecretValue.secretsManager('github-pipeline2'),
           output: sourceOutput
         })
       ]
