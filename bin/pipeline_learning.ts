@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { PipelineLearningStack } from '../lib/pipeline_learning-stack';
+import { BillingStack } from '../lib/billing-stack';
 
 const app = new cdk.App();
 new PipelineLearningStack(app, 'PipelineLearningStack', {
@@ -18,4 +20,9 @@ new PipelineLearningStack(app, 'PipelineLearningStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+});
+
+new BillingStack(app, "BillingStack", {
+  budgetAmount: 30,
+  emailAddress: "nguyenvietquan0304@gmail.com"
 });
