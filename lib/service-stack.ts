@@ -28,7 +28,9 @@ export class ServiceStack extends Stack {
     
     },
 
-    ),
+    );
 
 }
+
+
 }
