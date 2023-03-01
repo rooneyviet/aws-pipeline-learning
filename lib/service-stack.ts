@@ -24,6 +24,7 @@ export class ServiceStack extends Stack {
 
     const booksIntegration = new HttpLambdaIntegration('BooksIntegration', lambda);
     new HttpApi(this, "ServiceAPI", {
+        apiName: "ServiceApi",
         defaultIntegration: booksIntegration
     
     },
