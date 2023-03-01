@@ -15,7 +15,7 @@ export class PipelineLearningStack extends cdk.Stack {
     const pipeline = new Pipeline(this, "Pipeline",{
       pipelineName: "Pipelinename",
       crossAccountKeys: false,
-
+      restartExecutionOnUpdate: true
     });
 
     const cdkSourceOutput = new Artifact("CDKSourceOutput");
